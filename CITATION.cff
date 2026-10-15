@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use dal, please cite it as below, and cite the datasets you use (see NOTICE.md)."
+title: "dal: a lightweight single-object tracker and long-term holding benchmark for search-and-rescue drones"
+type: software
+authors:
+  - name: "The dal authors"
+version: 0.1.0
+date-released: 2026-10-15
+license: MIT
+repository-code: "https://github.com/sashapiscivca-svg/dal"
+keywords:
+  - search and rescue
+  - visual object tracking
+  - correlation filter
+  - Kalman filter
+  - drones
+  - tiny objects
+  - long-term tracking benchmark
+  - Raspberry Pi
+abstract: >-
+  dal keeps a box on a person in drone video after an operator or a detector has pointed at them. The recommended tracker is
+  training-free (MOSSE correlation filter, Kalman filter, camera-motion compensation) and runs on a Raspberry Pi Zero 2 W.
+  The release includes a long-term holding benchmark (Survival@N) on openly licensed civilian datasets and a small learned
+  tracker with a spiking motion module for research.

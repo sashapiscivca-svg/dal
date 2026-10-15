@@ -1,0 +1,19 @@
+{
+ "size": "n",
+ "net": {
+  "in_ch": 1,
+  "c0": 16,
+  "c": 24,
+  "depth": 2,
+  "cm": 24,
+  "motion": "snn",
+  "T": 1,
+  "k": 3,
+  "beta": 0.8,
+  "learn_beta": true
+ },
+ "name": "dal-n",
+ "version": "0.1.0",
+ "recipe": "v3: 1500 steps x 16 sequences x 6 frames, AdamW 2e-3, EMA 0.99, seed 0; 70 % of batches real SeaDronesSee SOT train windows, 30 % synthetic",
+ "training_data": "SeaDronesSee SOT train (CC0-1.0); synthetic sequences from HIT-UAV trainval (CC0-1.0) and AIResQ train (CC-BY-4.0, Buettner 2025, doi:10.5281/zenodo.17405074)"
+}

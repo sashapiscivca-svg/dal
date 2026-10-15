@@ -1,0 +1,58 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dal"
+version = "0.1.0"
+description = "Lightweight single-object tracker for search-and-rescue drone video, with a long-term holding benchmark (civilian use only)"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+license-files = ["LICENSE", "NOTICE.md"]
+authors = [{ name = "The dal authors" }]
+keywords = ["search and rescue", "visual tracking", "single object tracking", "correlation filter", "MOSSE", "kalman filter", "drone", "UAV", "tiny objects", "raspberry pi"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Image Recognition",
+]
+# runtime: the classic tracker, metrics and benchmarks need only numpy and OpenCV
+dependencies = ["numpy>=1.24", "opencv-python-headless>=4.8"]
+
+[project.optional-dependencies]
+onnx = ["onnxruntime>=1.16", "onnx>=1.14"]
+bench = ["pycocotools>=2.0.7"]
+train = ["torch>=2.2", "onnx>=1.14", "onnxruntime>=1.16", "safetensors>=0.4"]
+figures = ["matplotlib>=3.7", "pillow>=10"]
+dev = ["pytest>=8", "ruff>=0.5"]
+
+[project.urls]
+Homepage = "https://github.com/sashapiscivca-svg/dal"
+Documentation = "https://github.com/sashapiscivca-svg/dal/tree/main/docs"
+Issues = "https://github.com/sashapiscivca-svg/dal/issues"
+
+[project.scripts]
+dal = "dal.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["dal*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning:torch.*", "ignore:You are using the legacy TorchScript-based ONNX export:DeprecationWarning"]
+
+[tool.ruff]
+line-length = 160
+extend-exclude = ["runs", "data"]
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "B023"]
+ignore = ["E702", "E741", "E731", "E402"]
+per-file-ignores = { "tests/*" = ["B023"] }

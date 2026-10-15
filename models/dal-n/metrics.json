@@ -1,0 +1,14 @@
+{
+ "model": "dal-n",
+ "version": "0.1.0",
+ "protocol": "docs/benchmark.md: initialised from the frame-0 ground truth, no detector afterwards; per-frame F1 by IoU >= 0.5 and by centre-in-box (+2 px); frames pooled over clips; one run",
+ "short_clips": {
+  "seadronessee_val_70": {"frames": 13312, "balanced": {"lost_thr": 0.1, "recall_iou": 0.694, "precision_iou": 0.816, "f1_iou": 0.750, "recall_center": 0.801, "precision_center": 0.942, "f1_center": 0.866, "lost": 0.15, "AP50": 0.674},
+                          "sensitive": {"lost_thr": 0.03, "recall_iou": 0.720, "precision_iou": 0.750, "f1_iou": 0.734, "recall_center": 0.895, "precision_center": 0.933, "f1_center": 0.913, "lost": 0.04}},
+  "mobdrone_119": {"frames": 33423, "sensitive": {"lost_thr": 0.03, "recall_iou": 0.360, "precision_iou": 0.417, "f1_iou": 0.387, "recall_center": 0.780, "precision_center": 0.904, "f1_center": 0.837, "lost": 0.14}},
+  "wisard_ir_val_20": {"frames": 2398, "sensitive": {"lost_thr": 0.03, "recall_iou": 0.329, "precision_iou": 0.350, "f1_iou": 0.339, "recall_center": 0.528, "precision_center": 0.563, "f1_center": 0.545, "lost": 0.06}}
+ },
+ "quick_check_seadronessee_val_13_clips": {"frames": 1846, "balanced": {"f1_iou": 0.807, "f1_center": 0.930, "lost": 0.07, "AP50": 0.768}},
+ "latency_ms_p50": {"x86_i3_1115G4_1_thread_onnxruntime": 0.8, "raspberry_pi_zero_2w_1_thread": 21.4, "raspberry_pi_zero_2w_4_threads": 10.8, "note": "network step only, S = 96"},
+ "onnx_vs_pytorch_max_abs_diff": 5.72e-06
+}
